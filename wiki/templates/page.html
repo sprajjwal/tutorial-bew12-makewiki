@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ wiki_post.title }}</h1>
+    <h3> {{ wiki_post.authot }}</h3>
+    <small>{{ wiki_post.created }}</small>
+    {% if wiki_post.modified %}
+    <small> {{ wiki.modified}}</small>
+    {% endif %}
+
+    <p>{{ wiki_post.content }}</p>
+{% endblock %}
+
