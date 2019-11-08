@@ -12,7 +12,9 @@ from wiki.views import PageList, PageDetailView
       - Test by visiting http://127.0.0.1:8000/w/title-but-replace-spaces-with-dashes in your browser.
   """
 
+app_name = 'wiki'
+
 urlpatterns = [
-    path('', PageList.as_view(), name='wiki-list-page'),
-    path('<slug:slug>/', PageDetailView.as_view(), name='wiki-details-page'),
+    path('', PageList.as_view(), name='wiki-list-page'), # name convention: app-intention-page
+    path('<str:slug>/', PageDetailView.as_view(), name='wiki-details-page'),
 ]

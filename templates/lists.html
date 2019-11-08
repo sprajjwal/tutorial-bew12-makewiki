@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="card-container">
+    {% for item in page_list %}
+    <div class="card">
+      <h1 style="text-align: center;">{{ item.title }}</h1>
+      <hr>
+      <p>{{ item.content| truncatechars:300 }} </p>
+      <a style="align-self: flex-end;" href="{% url 'wiki:wiki-details-page' item.slug %}">Read More</a>
+    </div>
+    {% endfor %}
+  </div>
+   
+
+<style>
+  .card-container {
+    margin: 10px 0 0 10px;
+    align-self:center;
+    margin-top: 50px;
+    background-color:aliceblue;
+    width: 94vw;
+    height:auto;
+    display: flex;
+    flex-flow: wrap;
+    padding: 0;
+  }
+
+  .card {
+    width: 47.5%;
+    height: 400px;
+    padding: 6px;
+    margin: 1.25%;
+    display: flex;
+    flex-direction: column;
+  }
+</style>
+{% endblock %}

@@ -39,7 +39,7 @@ class PageDetailView(DetailView):
 
     def get(self, request, slug):
         """ Returns a specific of wiki page by slug. """
-        item = self.model.objects.get(slug=slug)
+        item = self.model.objects.get(slug__iexact=slug) # same as slug=slug.lower() but rhs is getting case -insensitive data
         return render(request, 'page.html', {
           'wiki_post': item
         })
